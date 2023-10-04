@@ -2,23 +2,24 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Палітра кольорів</title>
+  <title>Створення тесту</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js"></script>
 </head>
 <body>
-  <form id="colorForm">
-    <label for="newColor">Новий колір (Picker):</label>
-    <input type="color" id="newColor" name="newColor">
+  <div id="questionList"></div>
+  
+  <form id="questionForm">
+    <label for="question">Запитання:</label>
+    <input type="text" id="question" name="question" required>
     
-    <label>Новий колір (RGB):</label>
-    <input type="number" id="red" name="red" min="0" max="255" placeholder="R">
-    <input type="number" id="green" name="green" min="0" max="255" placeholder="G">
-    <input type="number" id="blue" name="blue" min="0" max="255" placeholder="B">
+    <label for="correctAnswer">Вірна відповідь:</label>
+    <input type="text" id="correctAnswer" name="correctAnswer" required>
+    
+    <label for="wrongAnswer">Хибна відповідь:</label>
+    <input type="text" id="wrongAnswer" name="wrongAnswer" required>
     
     <input type="submit" value="Додати">
   </form>
-  
-  <div id="palette"></div>
 </body>
 </html>

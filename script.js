@@ -1,30 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("colorForm");
-  const palette = document.getElementById("palette");
+  const form = document.getElementById("questionForm");
+  const questionList = document.getElementById("questionList");
   
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     
-    let newColor = form.newColor.value;
+    const question = form.question.value;
+    const correctAnswer = form.correctAnswer.value;
+    const wrongAnswer = form.wrongAnswer.value;
     
-    // If RGB fields are filled, override the color picker value
-    const red = form.red.value;
-    const green = form.green.value;
-    const blue = form.blue.value;
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+      <strong>Запитання:</strong> ${question} <br>
+      <strong>Вірна відповідь:</strong> ${correctAnswer} <br>
+      <strong>Хибна відповідь:</strong> ${wrongAnswer}
+    `;
     
-    if (red && green && blue) {
-      newColor = `rgb(${red}, ${green}, ${blue})`;
-    }
+    questionList.appendChild(listItem);
     
-    const colorBox = document.createElement("div");
-    colorBox.className = "colorBox";
-    colorBox.style.backgroundColor = newColor;
-    
-    const rgbInfo = document.createElement("span");
-    rgbInfo.className = "rgbInfo";
-    rgbInfo.textContent = newColor;
-    
-    colorBox.appendChild(rgbInfo);
-    palette.appendChild(colorBox);
+    // Clear form fields for next question
+    form.reset();
   });
 });
