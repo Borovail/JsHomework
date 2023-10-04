@@ -1,22 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("userInfoForm");
-  const output = document.getElementById("output");
+  const form = document.getElementById("colorForm");
+  const palette = document.getElementById("palette");
   
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     
-    const firstname = form.firstname.value;
-    const lastname = form.lastname.value;
-    const birthday = form.birthday.value;
-    const gender = form.gender.value;
-    const skills = form.skills.value;
+    let newColor = form.newColor.value;
     
-    output.innerHTML = `
-      <strong>Ім'я:</strong> ${firstname} <br>
-      <strong>Прізвище:</strong> ${lastname} <br>
-      <strong>Дата народження:</strong> ${birthday} <br>
-      <strong>Стать:</strong> ${gender} <br>
-      <strong>Навички:</strong> ${skills} <br>
-    `;
+    // If RGB fields are filled, override the color picker value
+    const red = form.red.value;
+    const green = form.green.value;
+    const blue = form.blue.value;
+    
+    if (red && green && blue) {
+      newColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+    
+    const colorBox = document.createElement("div");
+    colorBox.className = "colorBox";
+    colorBox.style.backgroundColor = newColor;
+    
+    const rgbInfo = document.createElement("span");
+    rgbInfo.className = "rgbInfo";
+    rgbInfo.textContent = newColor;
+    
+    colorBox.appendChild(rgbInfo);
+    palette.appendChild(colorBox);
   });
 });
