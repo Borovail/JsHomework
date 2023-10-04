@@ -1,14 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("loginForm");
-    const greeting = document.getElementById("greeting");
+    const form = document.getElementById("registrationForm");
+    const confirmation = document.getElementById("confirmation");
     
     form.addEventListener("submit", function(event) {
       event.preventDefault();
       
-      const username = form.username.value;
-      const rememberMe = form.rememberMe.checked;
+      const email = form.email.value;
+      const password = form.password.value;
+      const confirmPassword = form.confirmPassword.value;
       
-      greeting.textContent = `Привіт, ${username}! Я тебе ${rememberMe ? 'запам’ятав' : 'не запам’ятав'}.`;
+      if (password !== confirmPassword) {
+        confirmation.textContent = "Паролі не співпадають!";
+        return;
+      }
+      
+      confirmation.textContent = `На ${email} надіслано лист із підтвердженням.`;
     });
   });
   

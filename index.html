@@ -2,27 +2,31 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Логин</title>
-  <script src="script.js"></script>
+  <title>Реєстрація</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
 </head>
 <body>
-  <form id="loginForm">
-    <label for="username">Ім'я:</label>
-    <input type="text" id="username" name="username">
+  <form id="registrationForm">
+    <label for="email">Пошта:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    
+    <label for="username">Логін:</label>
+    <input type="text" id="username" name="username" required>
     <br>
     
     <label for="password">Пароль:</label>
-    <input type="password" id="password" name="password">
+    <input type="password" id="password" name="password" required>
     <br>
     
-    <input type="checkbox" id="rememberMe" name="rememberMe">
-    <label for="rememberMe">Запам'ятати мене</label>
+    <label for="confirmPassword">Підтвердіть пароль:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
     <br>
     
-    <input type="submit" value="Вхід">
+    <input type="submit" value="Реєстрація">
   </form>
   
-  <div id="greeting"></div>
+  <div id="confirmation"></div>
 </body>
 </html>
